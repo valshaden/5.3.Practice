@@ -1,18 +1,19 @@
-# Программа с интерфейсом
+# 4.3.2. Проект с бронированием
+# 4.3.5. Программа с интерфейсом
 from tkinter import *
 from tkinter import messagebox as mb
 
 def book_seat():
-    s = seat_entry.get().upper()
+    seat_name = seat_entry.get().upper()
     try:
-        if seats[s] == 'свободно':
-            seats[s] = 'забронировано'
+        if seats[seat_name] == 'свободно':
+            seats[seat_name] = 'забронировано'
             update_canvas()
-            mb.showinfo("Успех", f"Место '{s}' успешно забронировано.")
+            mb.showinfo("Успех", f"Место '{seat_name}' успешно забронировано.")
         else:
-            mb.showerror("Ошибка", f"Место '{s}' уже забронировано.")
+            mb.showinfo("Ошибка", f"Место '{seat_name}' уже забронировано.")
     except KeyError:
-        mb.showerror("Ошибка", f"Место '{s}' не существует.")
+        mb.showinfo("Ошибка", f"Место '{seat_name}' не существует.")
 
 def update_canvas():
     canvas.delete("all")
