@@ -3,7 +3,7 @@
 from tkinter import *
 from tkinter import messagebox as mb
 
-def book_seat():
+def book_seat(event=None):
     seat_name = seat_entry.get().upper()
     try:
         if seats[seat_name] == 'свободно':
